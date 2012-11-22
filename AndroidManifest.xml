@@ -18,5 +18,6 @@
             android:authorities="uk.co.parkesfamily.parkes.pissup.guide.contentproviders.wineratingscontentprovider" android:name="uk.co.parkesfamily.parkes.pissup.guide.contentproviders.WineratingsContentProvider"/>
         <provider
             android:authorities="uk.co.parkesfamily.parkes.pissup.guide.contentproviders.winecontentprovider" android:name="uk.co.parkesfamily.parkes.pissup.guide.contentproviders.WineContentProvider"/>
+        <activity android:name="WineListActivity" android:label="Wine List"></activity>
     </application>
 </manifest>
