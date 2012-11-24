@@ -1,5 +1,6 @@
 package uk.co.parkesfamily.parkes.pissup.guide;
 
+import uk.co.parkesfamily.parkes.pissup.guide.helperclasses.DBOpenHelper;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,10 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Copy the database onto the device 
+        DBOpenHelper dbOpen = new DBOpenHelper(this, true);
+        dbOpen.close();
     }
 
     @Override
