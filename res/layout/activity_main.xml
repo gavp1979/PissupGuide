@@ -5,12 +5,10 @@
 
     <Button
         android:id="@+id/btnViewWines"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="27dp"
         android:onClick="buttonClick"
         android:text="View Wines" />
 
