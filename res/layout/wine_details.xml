@@ -1,58 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewScroller"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ImageView
-        android:id="@+id/imageWine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:scaleType="centerInside"
-        android:src="@drawable/ic_action_search" />
-
-    <TextView
-        android:id="@+id/lblName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/edtName"
-        android:layout_alignParentLeft="true"
-        android:text="Name:" />
-
-    <EditText
-        android:id="@+id/edtName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/imageWine"
-        android:editable="false"
-        android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false" />
-
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtName"
-        android:layout_toRightOf="@+id/lblName"
-        android:onClick="ratingClick" >
-
-        <RatingBar
-            android:id="@+id/RatingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:numStars="5" />
-
-        <TextView
-            android:id="@+id/edtBasedOn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/RatingBar"
-            android:layout_centerHorizontal="true"
-            android:text="Based on ? reviews" />
+        android:id="@+id/viewWineDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
+        <ImageView
+            android:id="@+id/imageWine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_action_search" />
+
+        <TextView
+            android:id="@+id/lblName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtName"
+            android:layout_alignParentLeft="true"
+            android:text="Name:" />
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/imageWine"
+            android:editable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtName"
+            android:layout_toRightOf="@+id/lblName"
+            android:onClick="ratingClick" >
+
+            <RatingBar
+                android:id="@+id/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5" />
+
+            <TextView
+                android:id="@+id/edtBasedOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/RatingBar"
+                android:layout_centerHorizontal="true"
+                android:text="Based on ? reviews" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/edtCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/relativeLayout1"
+            android:editable="false"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/edtArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/edtCountry"
+            android:editable="false"
+            android:ems="10" />
+
+        <EditText
+            android:id="@+id/edtAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/edtArea"
+            android:editable="false"
+            android:ems="10" />
+
+        <EditText
+            android:id="@+id/edtProducer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/edtAlcohol"
+            android:editable="false"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/lblCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtCountry"
+            android:layout_alignParentLeft="true"
+            android:editable="false"
+            android:text="Country:" />
+
+        <TextView
+            android:id="@+id/lblArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtArea"
+            android:layout_alignBottom="@+id/edtArea"
+            android:layout_alignParentLeft="true"
+            android:text="Area:" />
+
+        <TextView
+            android:id="@+id/lblAlcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtAlcohol"
+            android:layout_alignBottom="@+id/edtAlcohol"
+            android:layout_alignParentLeft="true"
+            android:text="Alcohol" />
+
+        <TextView
+            android:id="@+id/lblProducer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtProducer"
+            android:layout_alignBottom="@+id/edtProducer"
+            android:layout_alignParentLeft="true"
+            android:text="Producer:" />
+
+        <TextView
+            android:id="@+id/lblTastingNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtPrice"
+            android:layout_marginTop="5dip"
+            android:text="Tasting Notes:" />
+
+        <EditText
+            android:id="@+id/edtTastingNotes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/lblTastingNotes"
+            android:editable="false"
+            android:ems="10" />
+
+        <EditText
+            android:id="@+id/edtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/edtProducer"
+            android:editable="false"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/lblPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/edtPrice"
+            android:text="Price:" />
     </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

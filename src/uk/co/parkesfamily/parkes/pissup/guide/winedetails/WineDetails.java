@@ -18,7 +18,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class WineDetails extends FragmentActivity
 	implements LoaderCallbacks<Cursor>
@@ -31,7 +30,8 @@ public class WineDetails extends FragmentActivity
 	
 	private long			_lWineID, _lRatingID; 
 	
-	private TextView		_edtName, _edtBasedOn;
+	private TextView		_edtName, _edtBasedOn, _edtCountry, _edtArea, 
+							_edtAlcohol, _edtProducer, _edtPrice, _edtTastingNotes;
 	private	ImageView		_imgWine;
 	private RatingBar		_ratingBar;
 	
@@ -57,7 +57,14 @@ public class WineDetails extends FragmentActivity
 		_lstWineCols = new String[]{
 				WineContentProvider._ID,
 				WineContentProvider.IMAGE,
-				WineContentProvider.NAME
+				WineContentProvider.NAME,
+				WineContentProvider.YEAR,
+				WineContentProvider.ALCOHOL,
+				WineContentProvider.COUNTRY,
+				WineContentProvider.AREA,
+				WineContentProvider.PRODUCER,
+				WineContentProvider.PRICE,
+				WineContentProvider.TASTINGNOTES
 		};
 		_strWineQuery = WineContentProvider._ID + " = ?";
 		
@@ -80,6 +87,12 @@ public class WineDetails extends FragmentActivity
 		_edtName = (TextView) findViewById(R.id.edtName);
 		_edtBasedOn = (TextView) findViewById(R.id.edtBasedOn);
 		_ratingBar = (RatingBar) findViewById(R.id.RatingBar);
+		_edtCountry = (TextView) findViewById(R.id.edtCountry);
+		_edtArea = (TextView) findViewById(R.id.edtArea); 
+		_edtAlcohol = (TextView) findViewById(R.id.edtAlcohol);
+		_edtProducer = (TextView) findViewById(R.id.edtProducer);
+		_edtPrice = (TextView) findViewById(R.id.edtPrice);
+		_edtTastingNotes = (TextView) findViewById(R.id.edtTastingNotes);
 		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null)
@@ -165,7 +178,8 @@ public class WineDetails extends FragmentActivity
 
 	private void populateData(final Cursor cursor)
 	{
-		String strName = "";
+		String strName = "", strCountry = "", strArea = "", strAlcohol = "", 
+				strProducer = "", strPrice = "", strTastingNotes = "";
 		Bitmap bmpImage = null;
 		
 		if (GPCursorHelper.hasRecords(cursor))
@@ -174,9 +188,23 @@ public class WineDetails extends FragmentActivity
 			
 			strName = GPCursorHelper.getString(cursor, WineContentProvider.NAME);
 			bmpImage = GPCursorHelper.GetBitmap(cursor, WineContentProvider.IMAGE);
+			
+			strCountry = GPCursorHelper.getString(cursor, WineContentProvider.COUNTRY);
+			strArea = GPCursorHelper.getString(cursor, WineContentProvider.AREA);
+			strAlcohol = GPCursorHelper.getString(cursor, WineContentProvider.ALCOHOL) + "%"; 
+			strProducer = GPCursorHelper.getString(cursor, WineContentProvider.PRODUCER);
+			strPrice = "£" + GPCursorHelper.getString(cursor, WineContentProvider.PRICE);
+			strTastingNotes = GPCursorHelper.getString(cursor, WineContentProvider.TASTINGNOTES);
 		}
 		
 		_edtName.setText(strName);
 		_imgWine.setImageBitmap(bmpImage);
+		
+		_edtCountry.setText(strCountry);
+		_edtArea.setText(strArea); 
+		_edtAlcohol.setText(strAlcohol);
+		_edtProducer.setText(strProducer);
+		_edtPrice.setText(strPrice);
+		_edtTastingNotes.setText(strTastingNotes); 
 	}
 }
